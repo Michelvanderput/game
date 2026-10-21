@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/rooms/test_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://src/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://src/enemies/training_dummy.tscn" id="3_dummy"]
+[ext_resource type="Script" path="res://src/debug/debug_overlay.gd" id="4_debug"]
+
+[node name="TestRoom" type="Node2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_room")
+layout = PackedStringArray("####################", "#..................#", "#..o............o..#", "#..................#", "#..................#", "#..................#", "#..................#", "#..................#", "#..o............o..#", "#..................#", "####################")
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+
+[node name="TrainingDummy" parent="." instance=ExtResource("3_dummy")]
+position = Vector2(184, 88)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(88, 88)
+
+[node name="DebugOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("4_debug")

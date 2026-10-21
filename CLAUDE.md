@@ -8,8 +8,13 @@ Lees bij elke nieuwe taak eerst `docs/gdd.md` en de taak in `docs/tasks/`.
 - Basisresolutie **320×180**. Project Settings: stretch mode `viewport`, aspect `keep`, scale mode `integer`,
   default texture filter `Nearest`, `snap_2d_transforms_to_pixel` en `snap_2d_vertices_to_pixel` aan.
 - Tile-grootte 16 px. Eén kamer = één scherm = 20×11 tiles.
-- Tests: **GUT** (addon in `addons/gut`). Draai tests headless:
-  `godot --headless -s addons/gut/gut_cmdln.gd -gdir=res://tests -gexit`
+- Tests: eigen kleine runner in GUT-stijl (`tests/run_tests.gd`, basisklasse `TestCase` in `tests/test_case.gd`).
+  Elke `tests/**/test_*.gd` extends `TestCase`; elke `test_*`-methode draait op een verse instantie en mag `await`en.
+  Script- en engine-fouten tijdens een test laten die test falen. Draai headless:
+  `godot --headless --import` (eerst, en na nieuwe `class_name`s of PNG's), dan
+  `godot --headless -s res://tests/run_tests.gd` (optioneel `-- test_rng` om te filteren). Exit-code 1 bij falen.
+  GUT kan later alsnog; de asserts heten hetzelfde (`assert_eq`, `assert_true`, `assert_almost_eq`).
+- Sprites opnieuw bouwen: `python tools/sprites/make_sprites.py` (schrijft ook `src/core/palette.gd`), daarna `python tools/palette_check.py`.
 - Versiebeheer: Git + Git LFS (`*.png`, `*.wav`, `*.ogg`, `*.pxo`).
 
 ## Mappen

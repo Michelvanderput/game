@@ -1,0 +1,13 @@
+# Temporary palette (10 colours) until the art direction is approved.
+# Format: <letter> <hex> <NAME>   - the letter is used in sprite grids, NAME in src/core/palette.gd.
+# '.' in a sprite grid means transparent.
+a 0e0b16 INK
+b 1c1a33 NIGHT
+c 2e3058 DUSK
+d 4b5a8c SLATE
+e 7a4b3a BARK
+f c4642b EMBER
+g ec8b33 FLAME
+h f7c35f GOLD
+i fbe7b5 CREAM
+j fffaf0 WHITE
